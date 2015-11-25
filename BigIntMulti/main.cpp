@@ -22,7 +22,7 @@ static string& trim(string &s){
     return rtrim(ltrim(s));
 }
 
-string native_mult_unsigned2char(string sa, string sb){
+string naive_mult_unsigned2char(string sa, string sb){
     // initialize everything
     sa=trim(sa); sb=trim(sb);
     if (sa.empty() or sb.empty())
@@ -85,7 +85,7 @@ string native_mult_unsigned2char(string sa, string sb){
     return result;
 }
 
-string native_mult_p2pass(string sa, string sb){
+string naive_mult_p2pass(string sa, string sb){
     // initialize everything
     sa=trim(sa); sb=trim(sb);
     if (sa.empty() or sb.empty())
@@ -149,7 +149,7 @@ string native_mult_p2pass(string sa, string sb){
     return result;
 }
 
-string native_mult3(string sa, string sb){
+string naive_mult3(string sa, string sb){
     // initialize everything
     sa=trim(sa); sb=trim(sb);
     if (sa.empty() or sb.empty())
@@ -202,7 +202,7 @@ string native_mult3(string sa, string sb){
     return result;
 }
 
-string native_mult(string sa, string sb){
+string naive_mult(string sa, string sb){
     // initialize everything
     sa=trim(sa); sb=trim(sb);
     if (sa.empty() or sb.empty())
@@ -258,22 +258,22 @@ int main() {
     chrono::high_resolution_clock::time_point t1, t2;
 
     t1 = chrono::high_resolution_clock::now();
-    string hehe=native_mult(a,b);
+    string hehe=naive_mult(a,b);
     t2 = chrono::high_resolution_clock::now();
     double dur=chrono::duration_cast<chrono::microseconds>( t2 - t1 ).count();
     
     /*t1 = chrono::high_resolution_clock::now();
-    string hehe2=native_mult_unsigned2char(a,b);
+    string hehe2=naive_mult_unsigned2char(a,b);
     t2 = chrono::high_resolution_clock::now();
     double dur2=chrono::duration_cast<chrono::microseconds>( t2 - t1 ).count();
     
     t1 = chrono::high_resolution_clock::now();
-    string hehe4=native_mult4(a,b);
+    string hehe4=naive_mult4(a,b);
     t2 = chrono::high_resolution_clock::now();
     double dur4=chrono::duration_cast<chrono::microseconds>( t2 - t1 ).count();
     
     t1 = chrono::high_resolution_clock::now();
-    string hehe3=native_mult3(a,b);
+    string hehe3=naive_mult3(a,b);
     t2 = chrono::high_resolution_clock::now();
     double dur3=chrono::duration_cast<chrono::microseconds>( t2 - t1 ).count();
     
@@ -281,12 +281,12 @@ int main() {
     
     
     //cout<<hehe<<endl<<endl;
-    cout<<a.length()<<' '<<b.length()<<' '<<hehe.length()<<endl;
     cout<<hehe<<endl;
-    cout<<"native_mult() Time spent: "<<(dur)/1000<<" ms"<<endl;
-    //cout<<"native_mult_unsigned2char() Time spent: "<<(dur2)/1000<<" ms"<<endl;
-    //cout<<"native_mult3() Time spent: "<<(dur3)/1000<<" ms"<<endl;
-    //cout<<"native_mult4() Time spent: "<<(dur4)/1000<<" ms"<<endl;
+    cout<<a.length()<<' '<<b.length()<<' '<<hehe.length()<<endl;
+    cout<<"naive_mult() Time spent: "<<(dur)/1000<<" ms"<<endl;
+    //cout<<"naive_mult_unsigned2char() Time spent: "<<(dur2)/1000<<" ms"<<endl;
+    //cout<<"naive_mult3() Time spent: "<<(dur3)/1000<<" ms"<<endl;
+    //cout<<"naive_mult4() Time spent: "<<(dur4)/1000<<" ms"<<endl;
     //cout<<"same results? "<<( (hehe2==hehe3) && (hehe3==hehe4))<<endl;
     
     return 0;
